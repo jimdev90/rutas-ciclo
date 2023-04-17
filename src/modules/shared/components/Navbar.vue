@@ -3,7 +3,11 @@
 <!--    <router-link :to="{ name: 'home' }">Pokemon List</router-link>-->
 <!--    <router-link :to="{ name: 'pokemon-id', params: { id:85 }}">Pokemon por id</router-link>-->
 <!--    <router-link :to="{ name: 'about' }">About</router-link>-->
-    <CustomLink />
+    <CustomLink
+      v-for="link in links"
+      :key="link.to"
+      :link="link"
+    />
   </div>
 </template>
 
@@ -14,7 +18,10 @@ export default {
   data () {
     return {
       links: [
-        { to: '/', name: 'Pokemons'}
+        { to: '/home', name: 'Pokemons'},
+        { to: '/50', name: 'Por ID'},
+        { to: '/about', name: 'About'},
+        { to: 'https://google.com', name: 'Google'},
       ]
     }
   },
